@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+## Lưu ý
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Trong quá trình sử dụng thư viện Web3.js, nếu bạn gặp lỗi:
 
-## Available Scripts
+```
+webpack < 5 used to include polyfills for node.js core modules by default. react
+```
 
-In the project directory, you can run:
+Bạn vui lòng hạ cấp `react-scripts` về phiên bản `4.0.3` bằng cách chạy 2 lệnh sau:
 
-### `npm start`
+```bash
+npm uninstall react-scripts
+npm install react-scripts@4.0.3
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Hướng dẫn sử dụng
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone source code về máy:
 
-### `npm test`
+```bash
+git clone https://github.com/pnnguyen9999/Dapp-Training-TECHFARM-x-FPT-GREENWICH.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Để chạy môi trường dev:
 
-### `npm run build`
+```bash
+npm start dev
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Để build:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Để chạy môi trường production:
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Thông tin liên hệ:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Nguyễn Văn Phú Nhàn - pns2951999@gmail.com
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Facebook](https://www.facebook.com/ampersand.lead) | [Zalo](https://search.brave.com/search?q=0935589703&source=desktop)
