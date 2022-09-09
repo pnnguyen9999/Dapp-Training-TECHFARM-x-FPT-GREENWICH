@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>test website</title>
+    <style>
+        .titleClass {
+            font-size: 50pt;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title1" class="titleClass">test</h1>
+    <button onclick="onClickButton();">hello</button>
+    <input id="input1" onchange="inputOnChange();" />
+</body>
+<script>
+    let input1 = document.getElementById("input1");
+    // let title1 = document.getElementById("title1");
+    let title1 = document.querySelector("#title1");
+    function onClickButton() {
+        alert("Hello from JS");
+    }
+    function inputOnChange() {
+        switch (Number(input1.value)) {
+            case 1: {
+                title1.style.color = "#ff0000";
+                break;
+            }
+            case 2: {
+                title1.style.color = "#00ff00";
+                break;
+            }
+            case 3: {
+                title1.style.color = "#0000ff";
+                break;
+            }
+            default: {
+                title1.style.color = "#000000";
+            }
+        }
+    }
+</script>
+
+</html>
