@@ -1,15 +1,15 @@
 import Web3 from "web3";
 import { useEffect, useState } from "react";
-import HERA_ABI from "./HERA.abi.json";
+import HERA_ABI from "../HERA.abi.json";
 
 function Dapp() {
-    const CHAIN_ID = "97";
+    const CHAIN_ID = "97"; // testnet bsc
     const HERA_ADDRESS = "0x98FBF57eE948694E2195c92da818E1628b76017D";
     /** BASIC INFO STATE*/
     const [web3Info, setWeb3Info] = useState();
     const [userAddress, setUserAddress] = useState();
     const [nativeBalance, setNativeBalance] = useState();
-    /** SMART CONTRACT (HEGEM) INFO STATE*/
+    /** SMART CONTRACT (HERA) INFO STATE*/
     const [heraBalance, setHeraBalance] = useState();
     /** UI STATE */
     const [recipientAddress, setRecipientAddress] = useState();
@@ -22,6 +22,30 @@ function Dapp() {
             console.log("this browser has an ethereum env");
         }
     }, []);
+
+    async function connectWallet() {
+        if (window.ethereum.networkVersion !== CHAIN_ID) {
+            /* -> wrong chain ID, call wallet to change network */
+            console.log("wrong chain");
+            const chainID_HEX = await Web3.utils.numberToHex(CHAIN_ID);
+            try {
+                await window.ethereum.request({
+                    method: "wallet_switchEthereumChain",
+                    params: [{ chainId: chainID_HEX }],
+                });
+                /* -> set web3Info */
+                setWeb3Info(new Web3(window.ethereum));
+
+            } catch (err) {
+                console.log(err);
+                return false;
+            }
+        } else {
+            /* -> right chain ID */
+            /* -> set web3Info */
+            setWeb3Info(new Web3(window.ethereum));
+        }
+    }
 
     useEffect(() => {
         /* -> set web3Info */
@@ -53,30 +77,6 @@ function Dapp() {
         }
         watchWeb3Info();
     }, [web3Info]);
-
-    async function connectWallet() {
-        if (window.ethereum.networkVersion !== CHAIN_ID) {
-            /* -> wrong chain ID, call wallet to change network */
-            console.log("wrong chain");
-            const chainID_HEX = await Web3.utils.numberToHex(CHAIN_ID);
-            try {
-                await window.ethereum.request({
-                    method: "wallet_switchEthereumChain",
-                    params: [{ chainId: chainID_HEX }],
-                });
-                /* -> set web3Info */
-                setWeb3Info(new Web3(window.ethereum));
-
-            } catch (err) {
-                console.log(err);
-                return false;
-            }
-        } else {
-            /* -> right chain ID */
-            /* -> set web3Info */
-            setWeb3Info(new Web3(window.ethereum));
-        }
-    }
 
     async function transferToken() {
         const heraContract = new web3Info.eth.Contract(HERA_ABI, HERA_ADDRESS);
@@ -113,8 +113,6 @@ function Dapp() {
                 <button onClick={transferToken}>Send HERA</button>
             </div>
         </div>}
-
-
     </div>);
 }
 export default Dapp;
